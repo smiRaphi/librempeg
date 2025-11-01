@@ -30,7 +30,7 @@
 const FFOutputFormat ff_pcm_ ## name_ ## _muxer = {         \
     .p.name        = #name_,                                \
     .p.long_name   = NULL_IF_CONFIG_SMALL(long_name_),      \
-    .p.extensions  = (ext) ? #name_ "," #ext : #name_,      \
+    .p.extensions  = (ext) ? #name_ "," + ext : #name_,     \
     .p.audio_codec = codec,                                 \
     .p.video_codec = AV_CODEC_ID_NONE,                      \
     .p.subtitle_codec = AV_CODEC_ID_NONE,                   \
@@ -56,7 +56,7 @@ PCMDEF(s32le, "PCM signed 32-bit little-endian",   AV_NE(NULL, "s32"),S32LE)
 PCMDEF(s24be, "PCM signed 24-bit big-endian",      AV_NE("s24", NULL),S24BE)
 PCMDEF(s24le, "PCM signed 24-bit little-endian",   AV_NE(NULL, "s24"),S24LE)
 PCMDEF(s16be, "PCM signed 16-bit big-endian",      AV_NE("sw,s16", NULL),S16BE)
-PCMDEF(s16le, "PCM signed 16-bit little-endian",   AV_NE(NULL," sw,s16"),S16LE)
+PCMDEF(s16le, "PCM signed 16-bit little-endian",   AV_NE(NULL, "sw,s16"),S16LE)
 PCMDEF(s8,    "PCM signed 8-bit",                              "sb,s8",  S8)
 PCMDEF(u32be, "PCM unsigned 32-bit big-endian",    AV_NE("u32", NULL),U32BE)
 PCMDEF(u32le, "PCM unsigned 32-bit little-endian", AV_NE(NULL, "u32"),U32LE)
